@@ -13,12 +13,12 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @RequestMapping(value = "/getPlayers", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public Iterable<PlayerDto> getPlayers() {
         return playerService.getAllPlayers();
     }
 
-    @RequestMapping(value = "/getPlayer/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public PlayerDto getPlayer(
             @PathVariable("id") Long id
     ) {
@@ -27,7 +27,7 @@ public class PlayerController {
 
 
 
-    @RequestMapping(value = "/createPlayer", method = RequestMethod.POST)
+    @RequestMapping( method = RequestMethod.POST)
     public PlayerDto createPlayer(
             @RequestBody PlayerDto player
     ) {
@@ -36,7 +36,7 @@ public class PlayerController {
 
 
 
-    @RequestMapping(value = "/editPlayer/{id}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
     public PlayerDto editPlayer(
             @PathVariable("id") Long id,
             @RequestBody PlayerDto player
@@ -44,7 +44,7 @@ public class PlayerController {
         return playerService.updatePlayer(id, player);
     }
 
-    @RequestMapping(value = "/deletePlayer/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deletePlayer(
             @PathVariable("id") Long id
     ) {

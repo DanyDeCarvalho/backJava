@@ -9,6 +9,7 @@ public class PlayerMapper {
                 .name(player.getName())
                 .numero(player.getNumero())
                 .position(player.getPosition())
+                .teamId(player.getTeam())
                 .build();
     }
 
@@ -18,6 +19,7 @@ public class PlayerMapper {
                 .name(playerDto.getName())
                 .numero(playerDto.getNumero())
                 .position(playerDto.getPosition())
+                .team(playerDto.getTeamId())
                 .build();
     }
 }

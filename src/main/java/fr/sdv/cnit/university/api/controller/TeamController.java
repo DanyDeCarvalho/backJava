@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import fr.sdv.cnit.university.api.service.TeamService;
 
 @RestController
+@RequestMapping("/api/teams")
 public class TeamController {
     private final TeamService teamService;
 
@@ -12,12 +13,12 @@ public class TeamController {
         this.teamService = teamService;
     }
 
-    @RequestMapping(value = "/getTeams", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public Iterable<TeamDto> getTeams() {
         return teamService.getTeams();
     }
 
-    @RequestMapping(value = "/getTeam/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public TeamDto getTeam(
             @PathVariable("id") Long id
     ) {
@@ -26,7 +27,7 @@ public class TeamController {
 
 
 
-    @RequestMapping(value = "/createTeam", method = RequestMethod.POST)
+    @RequestMapping( method = RequestMethod.POST)
     public TeamDto createTeam(
             @RequestBody TeamDto team
     ) {
@@ -35,7 +36,7 @@ public class TeamController {
 
 
 
-    @RequestMapping(value = "/editTeam/{id}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
     public TeamDto editTeam(
             @PathVariable("id") Long id,
             @RequestBody TeamDto team
@@ -43,7 +44,7 @@ public class TeamController {
         return teamService.editTeam(id, team);
     }
 
-    @RequestMapping(value = "/deleteTeam/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteTeam(
             @PathVariable("id") Long id
     ) {

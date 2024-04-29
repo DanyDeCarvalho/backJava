@@ -1,4 +1,5 @@
 package fr.sdv.cnit.university.api.dto;
+import fr.sdv.cnit.university.api.entity.Team;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,6 @@ public class PlayerDto {
     private String name;
     private Integer numero;
     private String position;
-    private Long teamId;
+    private Team teamId;
 
 }
